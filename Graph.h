@@ -59,7 +59,7 @@ public:
 			cout << "Ребро удалено!\n";
 		}
 		else cout << "Нет такого ребра!\n";
-	};
+	};		//Удаление ребра
 
 	void DelVertex(int x) {
 		if (!adj[x].e) {
@@ -72,7 +72,7 @@ public:
 			if (adj[i].e)
 				if (adj[i].exist(x)) adj[i].del(x);
 		}
-	};
+	};		//Удаление вершины
 
 	void SaveGraph() {
 		ofstream File("Graph.txt", ios_base::trunc);
