@@ -23,13 +23,13 @@ void Choice() {
 
 int main()
 {
-    setlocale(LC_ALL, "RU");
+    setlocale(LC_ALL, "RU");        //Корректный вывод на русском языке
 
     int x, y, n, a = 0;
     char sw;
 
     Graph G;       // создаем переменную-список
-    Graph G1;
+    Graph G1;       //Переменная-список для остовного дерева
 
     Choice();
     cout << endl;
@@ -80,6 +80,7 @@ int main()
             break;
         case 6:
             G.LoadGraph();
+            cout << "Граф загружен!\n";
             break;
         case 7:
             G.Display();
@@ -99,7 +100,7 @@ int main()
         case 9:
             cout << "С какой вершины начать?\n";
             cin >> x;
-            G.First(x);
+            G.ObhodVShir(x);
             break;
         case 10:
             cout << "С какой вершины начать? ";

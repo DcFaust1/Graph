@@ -75,8 +75,6 @@ public:
 	};		//Удаление вершины
 
 	void SaveGraph() {
-		ofstream File("Graph.txt", ios_base::trunc);
-		File.close();
 		for (int i = 0; i < 100; i++) {
 			if (adj[i].e) adj[i].save(i);
 		}
@@ -116,11 +114,9 @@ public:
 		}
 
 		file.close();
-
-		cout << "Граф загружен!\n";
 	}
 
-	void First(int x) {
+	void ObhodVShir(int x) {
 		if (!adj[x].e) {
 			cout << "Нет такой вершины!\n";
 			return;
@@ -146,7 +142,7 @@ public:
 				}
 			}
 		}
-	}
+	}		//Обход в ширину с выводом пройденных вершин
 
 	void OstDerevo(Graph G, int x) {
 		stack <int> q;      //Создаём стек
@@ -169,6 +165,6 @@ public:
 				}
 			}
 		}
-	}
+	}		//Создание остовного дерева. Создаётся в новой переменной, поэтому следует отдельно для неё вызвать Display()
 };
 

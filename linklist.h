@@ -86,21 +86,21 @@ public:
         }
         past->next = current->next;
         delete current;
-    }
+    }       //Удаление элемента
 
     void save(int i) {
         link* current = first;
-        ofstream File("Graph.txt", ios_base::app);      //—оздаЄм файл с записью с конца
+        ofstream File("Graph.txt", ios_base::app);      //создаём файл с записью с конца
 
         File << i << " ";     //i - это вершина
         while (current) {
             File << current->data << " ";
             current = current->next;
-        }       //ќбычна¤ запись св¤зей в файл
-        File << endl;       //ќтступ дл¤ новой вершины
+        }       //обычная запись связей в файл
+        File << endl;       //отступ для новой вершины
 
         File.close();
-    }
+    }       //Сохранение элементов списка смежности
 };
 
 
