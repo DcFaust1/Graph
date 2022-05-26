@@ -116,6 +116,20 @@ public:
 		file.close();
 	}
 
+	double d(int x) {
+		if (!adj[x].e) {
+			cout << "Нет такой вершины! \n"; return 0;
+		}
+
+		double t = 0;
+
+		for (int i = 0; i < 100; i++) {
+			if (adj[i].e && adj[i].exist(x)) t = t + 0.5;
+		}
+
+		return t;
+	}		//Вычисление полустепени захода специально для ориентированных графов.
+
 	void ObhodVShir(int x) {
 		if (!adj[x].e) {
 			cout << "Нет такой вершины!\n";
