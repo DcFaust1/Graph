@@ -204,5 +204,33 @@ public:
 			}
 		}
 	}
+
+	//Вывод всех вершин, удалённых на n от вершины v
+	linklist* D(int v, int n) {
+		linklist* list = new linklist;
+		queue<int> q;
+		bool used[100] = { 0 };
+		int d[100] = { 0 };
+		q.push(v);
+		used[v] = true;
+		while (!q.empty())
+		{
+			int i = q.front();
+			q.pop();
+			for (int j = 0; j < 100; j++)
+			{
+				if (!used[j] && adj[i].exist(j))
+				{
+					d[j] = d[i] + 1;
+					if (d[j] == n) {
+						list->additem(j);
+					}
+					q.push(j);
+					used[j] = true;
+				}
+			}
+		}
+		return list;
+	}
 };
 
