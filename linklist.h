@@ -4,7 +4,8 @@
 
 using namespace std;
 
-struct link   // один элемент списка смежности графа
+// один элемент списка смежности графа
+struct link
 {
     int data;   // метка вершины
     link* next; // указатель на следующую вершину в списке
@@ -20,18 +21,21 @@ public:
 
     bool e;                  // признак существовани¤ или отсутстви¤ списка
 
+    // списка пока не существует
     linklist()            // конструктор без параметров
     {
         first = NULL; e = false;
-    }     // списка пока не существует
+    }
 
+    // добавление элемента
     void additem(int d) {
         link* newlink = new link;      // выдел¤ем пам¤ть
         newlink->data = d;             // запоминаем данные
         newlink->next = first;         // запоминаем значение first
         first = newlink;               // first теперь указывает на новый элемент
-    }; // добавление элемента
+    };
 
+    // вывод списка
     void display() {
         link* current = first;           // начинаем с первого элемента
         if (!current) cout << "ѕусто!";
@@ -40,8 +44,9 @@ public:
             cout << current->data << ' '; // печатаем данные
             current = current->next;       // двигаемс¤ к следующему элементу
         }
-    }; // вывод списка
+    };
 
+    // проверка вхождения элемента в список
     bool exist(int x) {
         link* current = first;           // начинаем с первого элемента
         if (!current) return 0;
@@ -56,8 +61,9 @@ public:
             if (current == NULL)
                 return 0;
         }
-    };     // проверка вхождени¤ элемента в список
+    };
 
+    // опустошение списка
     void makenull() {
         link* current = first;           // начинаем с первого элемента
         link* deleted;
@@ -68,8 +74,9 @@ public:
             delete deleted;               // удал¤ем  тот, который запомнили 
         }
         first = NULL;
-    };   // опустошение списка;
+    };
 
+    //Удаление элемента
     void del(int x) {
         link* current = first->next;
         link* past = first;
@@ -86,8 +93,9 @@ public:
         }
         past->next = current->next;
         delete current;
-    }       //Удаление элемента
+    }
 
+    //Сохранение элементов списка смежности
     void save(int i) {
         link* current = first;
         ofstream File("Graph.txt", ios_base::app);      //создаём файл с записью с конца
@@ -100,7 +108,7 @@ public:
         File << endl;       //отступ для новой вершины
 
         File.close();
-    }       //Сохранение элементов списка смежности
+    }
 };
 
 
